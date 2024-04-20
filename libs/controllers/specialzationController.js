@@ -1,5 +1,5 @@
 const ResponseHelper = require("../helpers/ResponseHelper");
-const Specialization = require("../models/specialzation");
+const Specialization = require("../models/Specialzation");
 
 exports.getSpecilzation = async (req, res) => {
   try {
