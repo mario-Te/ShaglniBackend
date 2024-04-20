@@ -3,7 +3,7 @@ module.exports = {
     const modifiedApplicants = applicants.map((applicant) => {
       const modifiedApplicant = { ...applicant._doc };
       if (modifiedApplicant.fileName) {
-        modifiedApplicant.fileName = `${process.env.API_Domain}/uploads/documents/${modifiedApplicant.fileName}`;
+        modifiedApplicant.fileName = `${process.env.API_Domain}uploads/documents/${modifiedApplicant.fileName}`;
       }
       return modifiedApplicant;
     });
@@ -14,7 +14,7 @@ module.exports = {
     const modifiedJobs = jobs.map((job) => {
       const modifiedJob = { ...job._doc };
       if (modifiedJob.image) {
-        modifiedJob.image = `${process.env.API_Domain}/uploads/images/${modifiedJob.image}`;
+        modifiedJob.image = `${process.env.API_Domain}uploads/images/${modifiedJob.image}`;
       }
       if (modifiedJob.company == null) {
         delete modifiedJob.company;
