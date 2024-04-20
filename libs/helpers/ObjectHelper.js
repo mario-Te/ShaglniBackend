@@ -3,7 +3,7 @@ module.exports = {
     const modifiedApplicants = applicants.map((applicant) => {
       const modifiedApplicant = { ...applicant._doc };
       if (modifiedApplicant.fileName) {
-        modifiedApplicant.fileName = `${process.env.API_Domain}:${process.env.Port}/uploads/documents/${modifiedApplicant.fileName}`;
+        modifiedApplicant.fileName = `${process.env.API_Domain}/uploads/documents/${modifiedApplicant.fileName}`;
       }
       return modifiedApplicant;
     });
@@ -14,7 +14,7 @@ module.exports = {
     const modifiedJobs = jobs.map((job) => {
       const modifiedJob = { ...job._doc };
       if (modifiedJob.image) {
-        modifiedJob.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${modifiedJob.image}`;
+        modifiedJob.image = `${process.env.API_Domain}/uploads/images/${modifiedJob.image}`;
       }
       if (modifiedJob.company == null) {
         delete modifiedJob.company;
@@ -31,7 +31,7 @@ module.exports = {
   formatJob: (job) => {
     const modifiedJob = { ...job._doc };
     if (modifiedJob.image) {
-      modifiedJob.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${modifiedJob.image}`;
+      modifiedJob.image = `${process.env.API_Domain}/uploads/images/${modifiedJob.image}`;
     }
     if (modifiedJob.deadline) {
       modifiedJob.deadline = module.exports.formatDateTime(
@@ -44,7 +44,7 @@ module.exports = {
     const modifiedInfo = { ...userInfo._doc };
 
     if (modifiedInfo.image) {
-      modifiedInfo.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${modifiedInfo.image}`;
+      modifiedInfo.image = `${process.env.API_Domain}/uploads/images/${modifiedInfo.image}`;
     }
     if (modifiedInfo.user)
       modifiedInfo.birthdate = module.exports.formatDateTime(
