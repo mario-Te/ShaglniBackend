@@ -30,7 +30,7 @@ exports.getCompanyData = async (req, res) => {
       versionKey: false,
     });
     if (savedCompanyWithoutPassword.image)
-      savedCompanyWithoutPassword.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${savedCompanyWithoutPassword.image}`;
+      savedCompanyWithoutPassword.image = `${process.env.API_Domain}:uploads/images/${savedCompanyWithoutPassword.image}`;
     delete savedCompanyWithoutPassword.password;
     return res.status(200).json(
       ResponseHelper.successResponse({
@@ -54,7 +54,7 @@ exports.getPersonalData = async (req, res) => {
         versionKey: false,
       });
       if (savedCompanyWithoutPassword.image)
-        savedCompanyWithoutPassword.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${savedCompanyWithoutPassword.image}`;
+        savedCompanyWithoutPassword.image = `${process.env.API_Domain}uploads/images/${savedCompanyWithoutPassword.image}`;
       delete savedCompanyWithoutPassword.password;
       return res.status(200).json(
         ResponseHelper.successResponse({
@@ -139,7 +139,7 @@ exports.updateImage = async (req, res) => {
         versionKey: false,
       });
       if (savedCompanyWithoutPassword.image)
-        savedCompanyWithoutPassword.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${savedCompanyWithoutPassword.image}`;
+        savedCompanyWithoutPassword.image = `${process.env.API_Domain}uploads/images/${savedCompanyWithoutPassword.image}`;
       delete savedCompanyWithoutPassword.password;
       return res.status(200).json(
         ResponseHelper.successResponse({
@@ -159,7 +159,7 @@ exports.updateImage = async (req, res) => {
       versionKey: false,
     });
     if (savedInfoWithoutPassword.image)
-      savedInfoWithoutPassword.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${savedInfoWithoutPassword.image}`;
+      savedInfoWithoutPassword.image = `${process.env.API_Domain}uploads/images/${savedInfoWithoutPassword.image}`;
     delete savedInfoWithoutPassword.password;
     return res
       .status(200)
@@ -198,7 +198,7 @@ exports.updateBasicInfo = async (req, res) => {
       });
       delete company.password;
 
-      company.image = `${process.env.API_Domain}:${process.env.Port}/uploads/images/${company.image}`;
+      company.image = `${process.env.API_Domain}uploads/images/${company.image}`;
 
       return res.status(200).json(ResponseHelper.successResponse({ company }));
     }
