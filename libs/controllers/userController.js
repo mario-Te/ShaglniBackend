@@ -204,7 +204,7 @@ exports.updateBasicInfo = async (req, res) => {
     }
     const userId = req.user._id;
     const { first_name, last_name, experience, email, birthdate } = req.body;
-    let user = await User.findOne({ email });
+    let user = await User.findOne({ _id: { $ne: userId }, email });
     if (user) {
       return res
         .status(400)
